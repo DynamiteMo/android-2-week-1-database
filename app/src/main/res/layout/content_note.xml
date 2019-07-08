@@ -28,7 +28,7 @@
 
             <EditText
                 android:id="@+id/an_title"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="24dp"
@@ -37,7 +37,7 @@
 
             <EditText
                 android:id="@+id/an_text"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:hint="Note"

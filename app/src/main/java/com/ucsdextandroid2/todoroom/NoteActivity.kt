@@ -1,5 +1,6 @@
 package com.ucsdextandroid2.todoroom
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,8 +14,12 @@ class NoteActivity: AppCompatActivity() {
     companion object {
         private const val NOTE_EXTRA = "note_extra"
 
-        fun createIntent(context: Context, note: Note? = null): Intent =
-                Intent(context, NoteActivity::class.java).apply { putExtra(NOTE_EXTRA, note) }
+        fun createIntent(context: Context, note: Note? = null): Intent {
+            val intent = Intent(context, NoteActivity::class.java)
+            intent.putExtra(NOTE_EXTRA, note)
+
+            return intent
+        }
     }
 
     private lateinit var toolbar: Toolbar
@@ -47,6 +52,29 @@ class NoteActivity: AppCompatActivity() {
             titleView.setText(originalNote?.title)
             textView.setText(originalNote?.text)
         }
+    }
+
+    private fun saveNote() {
+        if(titleView.text.isNotEmpty() || textView.text.isNotEmpty()) {
+            val note = Note(
+                    titleView.text.toString(),
+                    textView.text.toString(),
+                    originalNote?.datetime ?: System.currentTimeMillis(),
+                    originalNote?.imageUri
+            )
+
+            AppDatabase.get(this).noteDao().insertNote(note)
+
+            setResult(Activity.RESULT_OK)
+        }
+        else {
+            setResult(Activity.RESULT_CANCELED)
+        }
+    }
+
+    override fun onBackPressed() {
+        saveNote()
+        super.onBackPressed()
     }
 
 }
