@@ -1,4 +1,4 @@
-package com.ucsdextandroid2.todoroom
+package com.ucsdextandroid2.todoroom.database
 
 import android.net.Uri
 import androidx.room.TypeConverter

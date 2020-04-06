@@ -1,4 +1,4 @@
-package com.ucsdextandroid2.todoroom
+package com.ucsdextandroid2.todoroom.database
 
 import android.content.Context
 import androidx.room.Database
@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.ucsdextandroid2.todoroom.model.Note
 
 /**
  * Created by rjaylward on 2019-07-05
@@ -24,8 +25,10 @@ abstract class AppDatabase : RoomDatabase() {
 
         @Volatile private var INSTANCE: AppDatabase? = null
 
-        fun get(context: Context): AppDatabase = INSTANCE ?: synchronized(this) {
-            INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
+        fun get(context: Context): AppDatabase = INSTANCE
+                ?: synchronized(this) {
+            INSTANCE
+                    ?: buildDatabase(context).also { INSTANCE = it }
         }
 
         private val migrationFrom1to2: Migration = object : Migration(1, 2) {
@@ -34,7 +37,7 @@ abstract class AppDatabase : RoomDatabase() {
             }
         }
 
-        private fun buildDatabase(context: Context): AppDatabase {
+        fun buildDatabase(context: Context): AppDatabase {
             return Room
                     .databaseBuilder(context, AppDatabase::class.java, DB_NAME)
                     .allowMainThreadQueries()

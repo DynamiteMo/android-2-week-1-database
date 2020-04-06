@@ -1,4 +1,4 @@
-package com.ucsdextandroid2.todoroom
+package com.ucsdextandroid2.todoroom.model
 
 import android.net.Uri
 import android.os.Parcelable
@@ -19,7 +19,7 @@ data class Note(
 
         @ColumnInfo(name = "text") val text: String?,
 
-        @PrimaryKey @ColumnInfo(name = "datetime") val datetime: Long = System.currentTimeMillis(),
+        @PrimaryKey @ColumnInfo(name = "created_at") val createdAt: Long = System.currentTimeMillis(),
 
         @ColumnInfo(name = "image_uri") val imageUri: Uri? = null,
 

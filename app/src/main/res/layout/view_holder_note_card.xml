@@ -17,12 +17,12 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/vnc_image"
+            android:id="@+id/noteCardImage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/vnc_title"
+            android:id="@+id/noteCardTitleView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -30,7 +30,7 @@
             tools:text="Title"/>
 
         <TextView
-            android:id="@+id/vnc_text"
+            android:id="@+id/noteCardTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="content"/>

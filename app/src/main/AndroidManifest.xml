@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.ucsdextandroid2.todoroom">
+    package="com.ucsdextandroid2.todoroom">
 
     <application
         android:allowBackup="true"
@@ -8,18 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name=".App"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.ucsdextandroid2.todoroom.NoteActivity"
-            android:label="@string/title_activity_note"
+            android:name=".MainScreenActivity"
             android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name="com.ucsdextandroid2.todoroom.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER"/>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 
