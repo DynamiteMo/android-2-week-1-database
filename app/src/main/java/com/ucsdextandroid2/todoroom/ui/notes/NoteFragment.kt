@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
+import androidx.recyclerview.widget.RecyclerView
 import com.ucsdextandroid2.todoroom.R
 import com.ucsdextandroid2.todoroom.database.NotesDao
 import com.ucsdextandroid2.todoroom.databinding.NoteFragmentBinding
@@ -58,6 +59,8 @@ class NoteFragment: Fragment() {
 
         setUpToolbar(binding.toolbar)
 
+        setUpColorPicker(binding.colorsRecyclerView)
+
         binding.toolbar.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
@@ -68,6 +71,13 @@ class NoteFragment: Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun setUpColorPicker(recyclerView: RecyclerView) {
+        //TODO add a color adapter and bind the color recycler view
+        // create adapter
+        // add layout manger
+        // set items to the adapter
     }
 
     private fun setUpToolbar(toolbar: Toolbar) {

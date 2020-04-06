@@ -69,6 +69,16 @@
 
         </ScrollView>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:id="@+id/colorsRecyclerView"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/cameraIcon"
+            tools:background="@android:color/holo_red_dark"/>
+
         <ImageView
             android:id="@+id/cameraIcon"
             android:layout_width="24dp"
